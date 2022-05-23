@@ -26,7 +26,7 @@ class Simulation:
     def run(self) -> None:
         # Event loop
         count = 0
-        while not self.stopped and count < 100:
+        while not self.stopped and count < 1000:
             self.run_hour()
             self.decide_event()
             self.print_status()
@@ -63,9 +63,9 @@ class Simulation:
 
 class Events:
     def air_alert(self, hour, energy, place, routine):
-        if random.random() < 0.5:
+        if random.random() < 0.4:
             energy -= 3
-            print("Air alert!")
+            print("Air alarm!")
             current_state = routine.see_current_routine().__name__.split("_")[0]
             if current_state == "sleep" or current_state == "work":
                 routine.remove_routine()

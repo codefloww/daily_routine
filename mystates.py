@@ -11,7 +11,7 @@ class States:
 
     def sleep_state(self, hour, energy, place, routine):
         energy += 12 if place == "home" else 7
-        if (hour > 8 and hour < 24) or energy > 100:
+        if (hour > 8 and hour < 24) or energy > 130:
             routine.add_routine(self.eat_state)
             return energy, place, routine
         else:
@@ -118,11 +118,11 @@ class States:
             else:
                 routine.add_routine(self.sleep_state)
                 return energy, place, routine
-    states = {
-        "initial": initial_state,
-        "sleep": sleep_state,
-        "eat": eat_state,
-        "work": work_state,
-        "route": route_state,
-        "rest": rest_state,
-    }
+    # states = {
+    #     "initial": initial_state,
+    #     "sleep": sleep_state,
+    #     "eat": eat_state,
+    #     "work": work_state,
+    #     "route": route_state,
+    #     "rest": rest_state,
+    # }
